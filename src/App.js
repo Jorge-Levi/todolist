@@ -1,9 +1,12 @@
 import "./App.css";
 import { TodoWrapper } from "./Components/TodoWrapper";
-import "./Normalize.css";
 
 function App() {
-  return <TodoWrapper></TodoWrapper>;
+  return (
+    <main className="app-shell">
+      <TodoWrapper />
+    </main>
+  );
 }
 
 export default App;
