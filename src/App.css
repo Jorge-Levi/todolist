@@ -1,38 +1,132 @@
-.App {
-  text-align: center;
+/* === CSS Reset & Normalization === */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html:focus-within {
+  scroll-behavior: smooth;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
   min-height: 100vh;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.5;
+  color: #1f2933;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  padding: 2.5rem 1.5rem;
 }
 
-.App-link {
-  color: #61dafb;
+#root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+/* === Todo App Styling === */
+form {
+  width: min(100%, 28rem);
+  display: grid;
+  gap: 1rem;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 1.25rem 2.5rem -1.5rem rgba(15, 23, 42, 0.35);
+}
+
+form input[type="text"] {
+  width: 100%;
+  border: 1px solid #d0d7e2;
+  border-radius: 0.75rem;
+  padding: 0.85rem 1rem;
+  background-color: #f8fafc;
+  color: #0f172a;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+form input[type="text"]::placeholder {
+  color: #94a3b8;
+}
+
+form input[type="text"]:focus {
+  outline: none;
+  border-color: #6366f1;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+}
+
+form button[type="submit"] {
+  justify-self: end;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+form button[type="submit"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0.75rem 1.5rem -1rem rgba(99, 102, 241, 0.65);
+}
+
+form button[type="submit"]:active {
+  transform: translateY(0);
+  filter: brightness(0.95);
+}
+
+form button[type="submit"]:focus-visible {
+  outline: 3px solid rgba(99, 102, 241, 0.45);
+  outline-offset: 4px;
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    padding: 2rem 1rem;
+  }
+
+  form {
+    padding: 1.5rem;
   }
 }
